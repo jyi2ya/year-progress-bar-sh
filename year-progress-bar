@@ -12,7 +12,7 @@ repeat() {
 
 column_num=$(tput cols)
 column_num=$((column_num - 10))
-day=$(date +%j)
+day=$(date +%j | sed 's/^0*//')
 black=$((column_num * day / 365))
 white=$((column_num - black))
 bar="$((100 * day / 365))% [$(repeat '#' $black)$(repeat ' ' $white)]"
